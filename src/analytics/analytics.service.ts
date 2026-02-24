@@ -74,13 +74,8 @@ await this.weatherModel.create({
 
 async getCityAnalytics(name: string) {
 
-  // Current weather
   const current = await this.weatherService.getCurrentWeather(name);
-
-  // 5 day forecast (3 hour interval data)
   const forecast = await this.weatherService.getForecast(name);
-
-  // Next 5 days temperatures
   const temps: number[] = forecast.list.map(
     (item: any) => item.main.temp
   );
